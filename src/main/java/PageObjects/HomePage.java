@@ -3,6 +3,8 @@ package PageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+
 
 public class HomePage extends UImodule {
 
@@ -10,8 +12,9 @@ public class HomePage extends UImodule {
         this.driverThread = driverThread;
     }
 
-    public void homeinit()
+    public void homeinit() throws IOException
     {
+        System.out.println("inside homeinit");
         driverThread.get("https://www.bunnings.com.au");
     }
 
@@ -32,7 +35,7 @@ public class HomePage extends UImodule {
     {
         driverThread.findElement(By.id("custom-css-outlined-input")).sendKeys("stud finder");
         driverThread.findElement(By.id("crossIcon")).click();
-        if(driverThread.findElement(By.id("custom-css-outlined-input")).getAttribute("value").equals("stud finder"))
+        if(driverThread.findElement(By.id("custom-css-outlined-input")).getText().contains("stud finder"))
             System.out.println("Field edited successfully");
     }
 
