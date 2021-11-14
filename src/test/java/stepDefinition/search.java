@@ -12,21 +12,23 @@ public class search extends UImodule {
     @Given("User lands to home page")
     public void userOnHomePage()
     {
+        DriverConfiguration();
         homepage.homeinit();
-
+        throw new io.cucumber.java.PendingException();
     }
 
     @Then("Search Bar should appear")
     public void checkSearchBar()
     {
         homepage.checkSearchbar();
-
+        throw new io.cucumber.java.PendingException();
     }
 
     @Then("Base text in search bar should be What can we help you find today?")
     public void baseText()
     {
         homepage.baseText();
+        throw new io.cucumber.java.PendingException();
     }
 
 
@@ -35,5 +37,6 @@ public class search extends UImodule {
     public void editSearchfield()
     {
         homepage.editSearchfield();
+        throw new io.cucumber.java.PendingException();
     }
 }

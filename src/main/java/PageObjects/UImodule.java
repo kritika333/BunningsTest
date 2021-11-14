@@ -31,7 +31,7 @@ public class UImodule {
         options.addArguments("--incognito");
         // capabilities.setCapability(ChromeOptions.CAPABILITY, options);
         options.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\KritiKapil\\Desktop\\chromedriver.exe");
         System.setProperty("webdriver.chrome.silentOutput", "true");
         //driverThread = new ChromeDriver(capabilities);
         driverThread = new ChromeDriver(options);
