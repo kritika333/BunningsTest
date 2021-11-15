@@ -11,21 +11,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.desktop.QuitStrategy;
+
 public class search extends UImodule {
 
-    @Given("Search functionality should be tested")
-    public void searchtest(){
-        DriverConfiguration();
-
-    }
-
-//    @When("User lands to home page")
-//    public void userOnHomePage() {
-//        driverThread.get("https://www.bunnings.com.au");
-//        Assert.assertTrue(driverThread.findElement(By.xpath("//*[@data-locator='logo-Bunnings']")).isDisplayed());
-//    }
-
-    @When("User is on home page")
+    @Given("User is on home page")
     public void userOnHomePage() {
         DriverConfiguration();
         System.out.println("inside homeinit");
@@ -43,19 +33,8 @@ public class search extends UImodule {
     @Then("Base text in search bar should be What can we help you find today?")
     public void baseText()
     {
-        Assert.assertEquals(driverThread.findElement(By.id("custom-css-outlined-input")).getText(),"What can we help you find today?");
+        if(driverThread.findElement(By.id("custom-css-outlined-input")).getText().contains("What can we help you find today?"));
                 System.out.println("Base text in Search bar displayed successfully");
-    }
-
-
-    @Then("User should be able to enter text in search bar")
-
-    public void editSearchfield()
-    {
-        driverThread.findElement(By.id("custom-css-outlined-input")).sendKeys("stud finder");
-                driverThread.findElement(By.id("crossIcon")).click();
-        if(driverThread.findElement(By.id("custom-css-outlined-input")).getText().contains("stud finder"))
-            System.out.println("Field edited successfully");
     }
 
     @Then("Popular searches should appear on search bar click")
@@ -63,7 +42,6 @@ public class search extends UImodule {
     {
         driverThread.findElement(By.id("custom-css-outlined-input")).click();
         Assert.assertTrue(driverThread.findElement(By.id("flyout")).isDisplayed());
-        QuitDriver(driverThread);
     }
 
 
@@ -97,15 +75,18 @@ public class search extends UImodule {
 
     }
 
-    @Then("User should navigate to item page")
-    public void navigatePDP()
-    {
-        Assert.assertTrue(driverThread.findElement(By.xpath("//*[@class='productDescriptionTopWrapper']")).isDisplayed());
-    }
-
-    @And("Add to cart button should displayed")
+    @And("Product description should display")
     public void addtoCart()
     {
-        Assert.assertTrue(driverThread.findElement(By.xpath("//*[@data-locator='atcButton']")).isDisplayed());
+        WebDriverWait wait=new WebDriverWait(driverThread,30);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='productDescriptionTopWrapper']"))).isDisplayed();
+    }
+
+    @And("User closed the browser")
+
+    public void closeBowser()
+    {
+        QuitDriver(driverThread);
+
     }
 }
