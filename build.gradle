@@ -41,11 +41,11 @@ application{
     mainClassName='main.java.PageObjects.UImodule'
 }
 
-task cucumberCli(type: JavaExec){
+task cucumber(type: JavaExec){
     dependsOn assemble, compileTestJava
             main="io.cucumber.core.cli.Main"
             classpath=configurations.cucumberRuntime+sourceSets.main.output+sourceSets.test.output
-            args=['--plugin','pretty','--plugin','html:target/cucumber-report.html','--glue','stepDefinition','src/test/resources']
+            args=['--plugin','pretty','--plugin','html:target/cucumber-report.html','--glue','stepDefinition','src/test/resources','--tags','@kritika']
 }
 
 sourceSets{
