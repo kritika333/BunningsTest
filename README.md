@@ -1,6 +1,7 @@
 # BunningsTest
 Testing challenge for Bunnings
-Gradle based framework to test search feature
+Gradle based framework to test search feature.
+
 Tools Used - 
 
 1. Build Tool - Gradle
