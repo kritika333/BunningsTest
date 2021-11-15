@@ -13,3 +13,5 @@ To start the execution run the command Gradle cucumber -t @search
 
 It will trigger the 3 scenarios mention in search.feature file
 
+Results are updated in target folder. Cucumber run report will generate in target folder.
+
