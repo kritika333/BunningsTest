@@ -22,3 +22,5 @@ Results are updated in target folder. Cucumber run report will generate in targe
 ![image](https://user-images.githubusercontent.com/62884811/141718286-0fbb5983-2696-4502-b1fb-2e7755ed1cc1.png)
 
 
+
+Note - Test Plan and identified test cases are added in Bunnings_TestPlan.doc
